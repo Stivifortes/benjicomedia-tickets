@@ -12,8 +12,8 @@ export async function POST(request: Request) {
   }
 
   const supabase = getSupabaseAdmin();
-  const { data, error } = await supabase
-    .from("payment_links")
+  const paymentLinks = supabase.from("payment_links") as any;
+  const { data, error } = await paymentLinks
     .select("id, url")
     .eq("status", "available")
     .order("id", { ascending: true })
@@ -28,8 +28,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No payment links are available right now." }, { status: 409 });
   }
 
-  const { data: assignedLink, error: updateError } = await supabase
-    .from("payment_links")
+  const { data: assignedLink, error: updateError } = await paymentLinks
     .update({
       status: "assigned",
       customer_name: payload.name,

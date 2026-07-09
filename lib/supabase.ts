@@ -1,6 +1,49 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-let client: ReturnType<typeof createClient> | null = null;
+export type Database = {
+  public: {
+    Tables: {
+      payment_links: {
+        Row: {
+          id: number;
+          url: string;
+          status: string | null;
+          customer_name: string | null;
+          customer_email: string | null;
+          customer_phone: string | null;
+          assigned_at: string | null;
+          created_at: string | null;
+        };
+        Insert: {
+          id?: number;
+          url: string;
+          status?: string | null;
+          customer_name?: string | null;
+          customer_email?: string | null;
+          customer_phone?: string | null;
+          assigned_at?: string | null;
+          created_at?: string | null;
+        };
+        Update: {
+          id?: number;
+          url?: string;
+          status?: string | null;
+          customer_name?: string | null;
+          customer_email?: string | null;
+          customer_phone?: string | null;
+          assigned_at?: string | null;
+          created_at?: string | null;
+        };
+      };
+    };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
+  };
+};
+
+let client: SupabaseClient<Database> | null = null;
 
 export function getSupabaseAdmin() {
   const supabaseUrl = process.env.SUPABASE_URL;
@@ -11,7 +54,7 @@ export function getSupabaseAdmin() {
   }
 
   if (!client) {
-    client = createClient(supabaseUrl, supabaseSecretKey, {
+    client = createClient<Database>(supabaseUrl, supabaseSecretKey, {
       auth: {
         persistSession: false,
         autoRefreshToken: false,
