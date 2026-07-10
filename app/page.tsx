@@ -20,7 +20,7 @@ export default function Home() {
               Benji Comedy Night
             </h2>
             <p className="max-w-2xl text-lg leading-8 text-zinc-600">
-              Reserve o seu ingresso para 31 de julho no Ballroom Sheraton e continue para o pagamento em um só passo.
+              Compre o seu bilhete para 31 de julho no Ballroom Sheraton e prepare-se para uma noite inesquecível.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function Home() {
               href="/buy"
               className="mt-6 inline-flex rounded-full bg-fuchsia-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-400"
             >
-              Comprar ingresso
+              Comprar bilhete
             </Link>
           </div>
         </section>

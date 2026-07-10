@@ -28,7 +28,7 @@ export default function Hero() {
               href="/buy"
               className="rounded-full bg-fuchsia-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-fuchsia-400"
             >
-              Comprar ingresso
+              Comprar bilhete
             </Link>
             <a
               href="#details"

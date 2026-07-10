@@ -36,7 +36,7 @@ export default function BuyForm() {
 
     if (!response.ok) {
       setStatus("error");
-      setMessage(payload.error ?? "We could not reserve your ticket right now.");
+      setMessage(payload.error ?? "Erro ao reservar o seu bilhete. Tente novamente mais tarde. Ou compre no RESTAURANTE CARAVELA");
       return;
     }
 
@@ -47,7 +47,7 @@ export default function BuyForm() {
     <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
       <div className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-500">Dados do cliente</p>
-        <h2 className="text-2xl font-semibold text-zinc-900">Reserve o seu ingresso</h2>
+        <h2 className="text-2xl font-semibold text-zinc-900">Compre o seu bilhete</h2>
         <p className="text-sm text-zinc-600">
           Vamos atribuir o próximo EasyLink disponível automaticamente e redirecionar você para concluir o pagamento.
         </p>

@@ -2,7 +2,7 @@ import BuyForm from "@/components/BuyForm";
 
 export const metadata = {
   title: "Buy Ticket | Benji Media",
-  description: "Reserve your ticket and get redirected to your payment link.",
+  description: "Buy your ticket for the Benji Comedy Night event.",
 };
 
 export default function BuyPage() {
