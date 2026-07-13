@@ -10,7 +10,7 @@ export const metadata = {
 async function getOrders() {
   const supabase = getSupabaseAdmin();
   const { data, count, error } = await supabase
-    .from<PaidOrder>("payment_links")
+    .from("payment_links")
     .select("id, url, status, customer_name, customer_email, customer_phone, assigned_at, created_at", {
       count: "exact",
     })
