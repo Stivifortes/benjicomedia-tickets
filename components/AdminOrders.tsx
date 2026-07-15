@@ -13,8 +13,6 @@ type Order = {
   created_at: string | null;
 };
 
-const POLL_INTERVAL_MS = 10000;
-
 function formatDate(value: string | null) {
   if (!value) {
     return "—";
@@ -58,8 +56,6 @@ export default function AdminOrders() {
 
   useEffect(() => {
     fetchOrders();
-    const intervalId = setInterval(fetchOrders, POLL_INTERVAL_MS);
-    return () => clearInterval(intervalId);
   }, [fetchOrders]);
 
   return (
@@ -68,7 +64,7 @@ export default function AdminOrders() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-lg font-semibold text-zinc-900">Clientes pagos</h2>
-            <p className="mt-1 text-sm text-zinc-600">Atualizado automaticamente a cada 10 segundos.</p>
+            <p className="mt-1 text-sm text-zinc-600">Use o botão para atualizar a lista manualmente.</p>
           </div>
           <button
             type="button"
